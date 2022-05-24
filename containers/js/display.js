@@ -40,3 +40,12 @@ function Minimap(x,y,width,height,type){
         }
         
 }
+function display(){
+    if(pic == 0){
+        controll.style.background = "url('img/tip2.png')"
+        pic++
+    }else{
+        controll.style.display = 'none';
+
+    }
+}
