@@ -12,6 +12,8 @@ const questsound = new Audio('sound/questcomplete.mp3');
 const endingsound = new Audio('sound/endsound.mp3');
 const lockerhide = new Audio('sound/locker.mp3');
 const bushhide = new Audio('sound/bush.mp3');
+const mapopen = new Audio('sound/openmap.mp3')
+mapopen.volume = 0.5;
 lockerhide.volume = 0.1;
 endingsound.volume = 0.1;
 questsound.volume = 0.3;
@@ -263,6 +265,7 @@ function setupInputs(){
                 showmap = false
             }
             else{
+                mapopen.play();
                 showmap = true
             }
         }
@@ -357,17 +360,7 @@ function Soundplay(){
     }else{
         huntSound.pause();
         huntSound.currentTime = 0;
-    }
-    for(let i = 0; i<doors.length;i++){
-        if(checkIntersection(player,doors[i])){
-            if(upKey && stage != Math.floor(stage)){
-                dooropens.play();
-            }else if(downKey && stage == Math.floor(stage)){
-                dooropens.play();
-            }
-        }
-    }
-    
+    } 
     if(player.maxhp == 0 || paused){
         footStep.pause();
         huntSound.pause();
